@@ -65,8 +65,8 @@ from email import encoders
 # OTHERWISE WILL RECEIVE AN ALERT
 
 # DEFINING EMAILS 'FROM' / 'TO'
-mymail = 'petricenco89@gmail.com'   # FROM email addres
-emailsent = 'petricenco89@gmail.com'# TO email addres
+mymail = '*******@gmail.com'   # FROM email addres
+emailsent = '*********@gmail.com'# TO email addres
 subject = 'Python!'					# Adding a Subject to the email
 
 # COMPLETE TEXT FIELDS AND MESSAGE IT SELF
