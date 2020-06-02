@@ -33,7 +33,7 @@ time.sleep(2)
 pyautogui.typewrite('Usecase' + '.html')
 time.sleep(3)
 
-# moVING THROUGH SAVE AS FOLDER
+# MOVING THROUGH SAVE AS FOLDER
 # Move to find text field for entering the path
 for i in range(6):
     pyautogui.hotkey('tab')
