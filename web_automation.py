@@ -9,7 +9,7 @@ def Openfolder():
     path= "C:\\Users\\apetricenco\\Desktop\\QA Classes\\Python\\STUDY"
     webbrowser.open(os.path.realpath(path))
 
-# OPEN THE BROWSER AND WEB PAGE
+# OPEN THE BROWSER/(MAKE SURE 'chromedriver' IS UPDATED TO THE VERSION OF YOUR CHROME)
 browser = webdriver.Chrome('C:\\chromedriver_win32\\chromedriver')
 browser.get('https://www.amazon.com/')
 
