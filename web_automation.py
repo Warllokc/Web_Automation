@@ -10,7 +10,7 @@ def Openfolder():
     webbrowser.open(os.path.realpath(path))
 
 # OPEN THE BROWSER/(MAKE SURE 'chromedriver' IS UPDATED TO THE VERSION OF YOUR CHROME)
-browser = webdriver.Chrome('C:\\chromedriver_win32\\chromedriver')
+browser = webdriver.Chrome('C:\\Users\\apetricenco\\Downloads\\chromedriver')
 browser.get('https://www.amazon.com/')
 
 # TYPE ON SEARCH BAR WHAT WE WANT TO SEARCH
