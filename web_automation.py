@@ -1,17 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-import pyautogui
 import webbrowser, os
-
-# SAVING THE PATH
-def Openfolder():
-    path= "C:\\Users\\apetricenco\\Desktop\\QA Classes\\Python\\STUDY"
-    webbrowser.open(os.path.realpath(path))
+from PIL import Image
 
 # OPEN THE BROWSER/(MAKE SURE 'chromedriver' IS UPDATED TO THE VERSION OF YOUR CHROME)
 browser = webdriver.Chrome('C:\\Users\\apetricenco\\Downloads\\chromedriver')
 browser.get('https://www.amazon.com/')
+browser.maximize_window()
 
 # TYPE ON SEARCH BAR WHAT WE WANT TO SEARCH
 searchbar = browser.find_element_by_id('twotabsearchtextbox')
@@ -22,35 +18,15 @@ time.sleep(2)
 # FINDING ELEMENTS Using XPATH
 browser.find_element_by_xpath(""" //*[@id="p_72/2661618011"] """).click()
 endresult = browser.find_elements_by_xpath("""//*[@id="twotabsearchtextbox"]""")
-for v in endresult:
-    print(v.text)
-
-# OPEN 'SAVE AS' FOLDER
-pyautogui.hotkey('ctrl', 's')
-time.sleep(2)
-
-# TYPING 'NEW FILE' NAME
-pyautogui.typewrite('Usecase' + '.html')
 time.sleep(3)
 
-# MOVING THROUGH SAVE AS FOLDER
-# Move to find text field for entering the path
-for i in range(6):
-    pyautogui.hotkey('tab')
-pyautogui.hotkey('enter')
+# SAVE A SCREENSHOT
+os.chdir("C:\\Users\\apetricenco\\Desktop")
+browser.save_screenshot('Result.png')
+im = Image.open('Result.png')
+im.show()
 
-# Type the path
-pyautogui.typewrite ('C:/Users/apetricenco/Desktop/QA Classes/Python/STUDY')
-pyautogui.hotkey('enter')
-
-# Find SAVE AS button
-for i in range(3):
-    pyautogui.hotkey('tab')
-pyautogui.hotkey('enter')
-
-time.sleep(30)
-
-Openfolder()
+webbrowser.open(os.path.realpath('C:\\Users\\apetricenco\\Desktop'))
 print('Saving SUCCESS!!!!')
 
 
@@ -65,8 +41,8 @@ from email import encoders
 # OTHERWISE WILL RECEIVE AN ALERT
 
 # DEFINING EMAILS 'FROM' / 'TO'
-mymail = '*******@gmail.com'   # FROM email addres
-emailsent = '*********@gmail.com'# TO email addres
+mymail = '****@gmail.com'   # FROM email addres
+emailsent = '*****@yahoo.com'# TO email addres
 subject = 'Python!'					# Adding a Subject to the email
 
 # COMPLETE TEXT FIELDS AND MESSAGE IT SELF
@@ -76,13 +52,13 @@ msg['To'] = emailsent
 msg['Subject'] = subject
 
 # Message to send
-body = 'Hi this message is sent from Python script!!! Hooowooooo!!!! ))))))))'
+body = 'Hi this message is sent from Python script!!!'
 msg.attach(MIMEText(body, 'plain'))
 
 # File to attach
-filename = 'Usecase.html'
+filename = 'Result.png'
 
-os.chdir('C:\\Users\\apetricenco\\Desktop\\QA Classes\\Python\\STUDY')
+os.chdir('C:\\Users\\apetricenco\\Desktop')
 attachment = open(filename, 'rb')
 
 part = MIMEBase('application', 'octet-stream')
@@ -95,7 +71,7 @@ text = msg.as_string()
 # Connecting to server
 server = smtplib.SMTP('smtp.gmail.com',587)
 server.starttls()
-server.login(mymail, '*******')# personal credentials
+server.login(mymail, '*********')# personal credentials / password
 server.sendmail(mymail, emailsent, text)
 server.quit()
 
