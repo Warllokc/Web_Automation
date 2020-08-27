@@ -41,8 +41,8 @@ from email import encoders
 # OTHERWISE WILL RECEIVE AN ALERT
 
 # DEFINING EMAILS 'FROM' / 'TO'
-mymail = '****@gmail.com'   # FROM email addres
-emailsent = '*****@yahoo.com'# TO email addres
+mymail = '****@gmail.com'           # FROM email addres
+emailsent = '*****@yahoo.com'       # TO email addres
 subject = 'Python!'					# Adding a Subject to the email
 
 # COMPLETE TEXT FIELDS AND MESSAGE IT SELF
@@ -71,8 +71,10 @@ text = msg.as_string()
 # Connecting to server
 server = smtplib.SMTP('smtp.gmail.com',587)
 server.starttls()
-server.login(mymail, '*********')# personal credentials / password
+server.login(mymail, '*********')       # personal credentials / password
 server.sendmail(mymail, emailsent, text)
 server.quit()
 
 print ('Sending SUCCESS!!!!!!!!!')
+
+# Enjoy coding!!!
